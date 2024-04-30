@@ -1,6 +1,6 @@
 def cal_num()
     puts "Enter the first number - "
-    num1 = gets.chomp.to_i
+    num1 = gets.chomp.to_i     
     puts "Choose an operator (+,-,*,/) -" 
     op = gets.chomp            #how to restrict to get only operators
     puts "Enter the second number - "
