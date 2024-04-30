@@ -1,3 +1,4 @@
+require "date"
 def cal_age(bd)
     nowTime = Time.now
     diff = nowTime.year - bd.year
