@@ -1,12 +1,11 @@
 require 'date'
 
 def cal_date()
-    days = {0 => "Sunday",
-1 => "Monday", 
-2 => "Tuesday",
-3 => "Wednesday",
-4 => "Thursday",
-5 => "Friday",
-6 => "Saturday"}
-  
+    num = 5
+    print "Previous days are "
+    for i in 1..num
+      prevDays = Date.today.prev_day(i).strftime('%A')
+      print "#{prevDays}, "
+    end
 end
+cal_date()
