@@ -1,3 +1,13 @@
+
+def check(decision)   #edge cases method
+    if decision == "Continue" 
+      return true
+    elsif decision == "Stop"
+      return true
+    else
+      return false
+    end
+  end
 def cal_num()
     puts "Enter the first number - "
     num1 = gets.chomp.to_i     
@@ -7,11 +17,14 @@ def cal_num()
     num2 = gets.chomp.to_i
     result = num1.public_send(op,num2)
     print "Result is #{result}."
-    puts " Do you want to continue (type 'c') or stop( type 's')?"
-    cp = gets.chomp.to_str
-    if(cp == "c")
+    begin
+        puts " Do you want to Continue or Stop?"
+        cp = gets.chomp.to_str.capitalize()
+    end until(check(cp))
+    
+    if(cp == "Continue")
         cal_num()
-    elsif(cp == "s")
+    elsif(cp == "Stop")
         exit()
     end 
 end

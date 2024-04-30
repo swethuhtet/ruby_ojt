@@ -1,11 +1,25 @@
+def check(decision)   #edge cases method
+    if decision == "Save" 
+      return true
+    elsif decision == "Cancel"
+      return true
+    else
+      return false
+    end
+  end
+
 def file_save()
     print "enter title :"
     title = gets.chomp.to_str
     print "enter notes :"
     notes = gets.chomp.to_str
-    print "Do you want to Save or Cancel? Type save or cancel. \n"
-    str = gets.chomp.to_str
-    if str == "save"
+
+    begin
+        print "Do you want to Save or Cancel? Type Save or Cancel. \n"
+        decision = gets.chomp.to_str.capitalize()
+    end until(check(decision))
+    
+    if decision == "Save"
       File.open("#{title}.txt","w") { |f| f.write "#{notes}" }
       begin
         file_data = File.new("#{title}.txt","r").read
@@ -15,7 +29,7 @@ def file_save()
         rescue  
         print "file not found on the screen"
       end
-    elsif str == "cancel"
+    elsif decision == "Cancel"
         exit()
     end
 end

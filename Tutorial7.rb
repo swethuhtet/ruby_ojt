@@ -3,7 +3,7 @@ class Person
       @name = name
     end
     def print_name()
-      print "name is #{@name}"
+      print "Your name is #{@name}."
     end
   end
 class Student < Person
@@ -12,21 +12,31 @@ class Student < Person
     @roll_number=roll_number
   end
   def print_roll()
-    print " roll number is #{@roll_number}"
+    print " Roll number is #{@roll_number}"
   end
 end
 
+def check(person)   #edge cases method
+  if person == "Person" 
+    return true
+  elsif person == "Student"
+    return true
+  else
+    return false
+  end
+end
 
+begin
+    print "Are you a Person or Student? "
+    input = gets.chomp.to_str.capitalize()
+end until(check(input))
 
-def checkPerson()
-  print "Are you a Person or Student? "
-  input = gets.chomp.to_str.capitalize()
-  if input == "Person"
-    print "Enter a name : "
+if input == "Person"
+    print "Enter your name : "
     personName = gets.chomp.to_str
     person = Person.new(personName)
     person.print_name()
-  elsif input == "Student"
+elsif input == "Student"
     print "Enter your name : "
     studentName = gets.chomp.to_str
     print "Enter your roll number : "
@@ -34,9 +44,8 @@ def checkPerson()
     student = Student.new(studentName,studentRoll)
     student.print_name()
     student.print_roll()
-  end
 end
-checkPerson()
+
 
 
 
